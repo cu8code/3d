@@ -19,6 +19,21 @@ function Box(props: any) {
     </mesh>
   );
 }
+
+function Circle(props: any) {
+  return (
+    <mesh
+      {...props}
+      scale={1}
+      onClick={(e: any) => {
+        console.log(e);
+      }}
+    >
+      <circleGeometry args={[1]} />
+      <meshStandardMaterial color={"hotpink"} />
+    </mesh>
+  );
+}
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -33,7 +48,7 @@ const Home: NextPage = () => {
           <ambientLight />
           <pointLight />
           <Box position={[1.5, 0, 0]} />,
-          <Box position={[-1.5, 0, 0]} />,
+          <Circle position={[-1.5, 0, 0]} />,
         </Canvas>
       </main>
 
