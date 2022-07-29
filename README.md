@@ -51,9 +51,10 @@ createRoot(document.getElementById("root") as HTMLElement).render(
 ### what is what
 
 copy -> plese copy the link and past into your browser, the links dont work directly
-or they do i dont know, it not working localy
+or they do i dont know, it not working localy!!
 
 - [useFrame and animations](https://docs.pmnd.rs/react-three-fiber/tutorials/basic-animations)
 - [mesh - a collection of material and geometer](https://threejs.org/docs/#api/en/objects/Mesh) copy
 - [circle geomtery](https://threejs.org/docs/#api/en/geometries/CircleGeometry) copy
 - [sphere](https://threejs.org/docs/#api/en/geometries/SphereGeometry) copy
+- [canvas - mix of THREE.camera and THREE.Renderer](https://docs.pmnd.rs/react-three-fiber/api/canvas)

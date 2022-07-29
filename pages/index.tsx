@@ -34,6 +34,22 @@ function Circle(props: any) {
     </mesh>
   );
 }
+
+function Planate(props: any) {
+  return (
+    <mesh
+      {...props}
+      scale={1}
+      onClick={(e: any) => {
+        console.log(e);
+      }}
+    >
+      <sphereGeometry args={[15]} />
+      <meshStandardMaterial color={"hotpink"} />
+    </mesh>
+  );
+}
+
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
@@ -48,7 +64,7 @@ const Home: NextPage = () => {
           <ambientLight />
           <pointLight />
           <Box position={[1.5, 0, 0]} />,
-          <Circle position={[-1.5, 0, 0]} />,
+          <Planate position={[-1.5, 0, 0]} />,
         </Canvas>
       </main>
 
