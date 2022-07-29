@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# an repo for my 3js skills
 
-## Getting Started
+### An basic scean
 
-First, run the development server:
+- Scenes;
+- Perspective Camera;
+- Renderers;
+- Geometry; apply material on it;
+- Add to the scean obj
 
-```bash
-npm run dev
-# or
-yarn dev
+## References
+
+### An basic scean
+
+```ts
+import * as THREE from "three";
+import { createRoot } from "react-dom/client";
+import React, { useRef, useState } from "react";
+import { Canvas, useFrame, ThreeElements } from "@react-three/fiber";
+
+function Box(props: ThreeElements["mesh"]) {
+  const ref = useRef<THREE.Mesh>(null!);
+  const [hovered, hover] = useState(false);
+  const [clicked, click] = useState(false);
+  useFrame((state, delta) => (ref.current.rotation.x += 0.01));
+  return (
+    <mesh
+      {...props}
+      ref={ref}
+      scale={clicked ? 1.5 : 1}
+      onClick={(event) => click(!clicked)}
+      onPointerOver={(event) => hover(true)}
+      onPointerOut={(event) => hover(false)}
+    >
+      <boxGeometry args={[1, 1, 1]} />
+      <meshStandardMaterial color={hovered ? "hotpink" : "orange"} />
+    </mesh>
+  );
+}
+
+createRoot(document.getElementById("root") as HTMLElement).render(
+  <Canvas>
+    <ambientLight />
+    <pointLight position={[10, 10, 10]} />
+    <Box position={[-1.2, 0, 0]} />
+    <Box position={[1.2, 0, 0]} />
+  </Canvas>
+);
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### what is what
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [useFrame and animations](https://docs.pmnd.rs/react-three-fiber/tutorials/basic-animations)
+- [mesh](https://threejs.org/docs/#api/en/objects/Mesh)
