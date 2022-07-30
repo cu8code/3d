@@ -58,4 +58,5 @@ or they do i dont know, it not working localy!!
 - [circle geomtery](https://threejs.org/docs/#api/en/geometries/CircleGeometry) copy
 - [sphere](https://threejs.org/docs/#api/en/geometries/SphereGeometry) copy
 - [canvas - mix of THREE.camera and THREE.Renderer](https://docs.pmnd.rs/react-three-fiber/api/canvas)
-- [create custom geomtery](https://r105.threejsfundamentals.org/threejs/lessons/threejs-custom-geometry.html)
+- [create custom geomtery](https://r105.threejsfundamentals.org/threejs/lessons/threejs-custom-geometry.html) depricated
+- [plane geometry](https://threejs.org/docs/#api/en/geometries/PlaneGeometry) 
